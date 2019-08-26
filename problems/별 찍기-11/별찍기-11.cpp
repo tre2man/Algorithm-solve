@@ -15,15 +15,15 @@ void tri(int x,int y,int num)
 		arr[x+2][y+3]='*';
 		arr[x+2][y+4]='*';
 	}
-	
+
 	else
 	{
-		tri(x,y+num/2,num/2);   //À§ 
-		tri(x+num/2,y,num/2);   //¿ÞÂÊ  
-		tri(x+num/2,y+num,num/2);    //¿À¸¥ÂÊ  
+		tri(x,y+num/2,num/2);   //ï¿½ï¿½
+		tri(x+num/2,y,num/2);   //ï¿½ï¿½ï¿½ï¿½
+		tri(x+num/2,y+num,num/2);    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
- } 
- 
+ }
+
 void print(int x,int y)
 {
 	for(int i=0;i<x;i++)
@@ -41,7 +41,7 @@ int main()
 {
 	int n;
 	scanf("%d",&n);
-	
+
 	tri(0,0,n);
 	print(n,(n*5/3)+(n/3-1));
- } 
+ }
