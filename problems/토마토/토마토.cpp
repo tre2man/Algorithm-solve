@@ -1,97 +1,52 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int tomato[1000][1000];
-int visit[1000][1000];
-
-int max(int a,int b)
-{
-	if(a>b)
-		return a;
-	else
-		return b;
-}
+int arr[1005][1005]={0};
+int visit[1005][1005]={0};
+int q[1000050][2]={0};
+int dx[4]={-1,1,0,0};
+int dy[4]={0,0,-1,1};
+int front,rear,x,y;
 
 int main()
 {
-	int m,n,ans,check=1,end=0;
-	scanf("%d %d",&m,&n);
-	for(int i=0;i<n;i++)
-	{
-		for(int j=0;j<m;j++)
-		{
-			scanf("%d",&tomato[i][j]);
-			//if(tomato[i][j]==1)
-			//	visit[i][j]=1;
-		}
-	}
+	int size,i,j;
+	scanf("%d",&size);
 	
-	while(check<1000)
+	front=rear=0;
+	
+	for(i=0;i<size;i++)  //ют╥б  
 	{
-		for(int i=0;i<n;i++)
+		for(j=0;j<size;j++)
 		{
-			for(int j=0;j<m;j++)
+			scanf("%1d",&arr[i][j]);
+			if(arr[i][j]==1)
 			{
-				if(tomato[i][j]==check)
-				{
-					if(tomato[i-1][j]!=-1&&i-1>=0&&visit[i-1][j]!=1&&tomato[i-1][j]!=check)
-					{
-						tomato[i-1][j]=check+1;
-						visit[i][j]=1;
-						end++;
-					}
-					if(tomato[i+1][j]!=-1&&i+1>=0&&visit[i+1][j]!=1&&tomato[i+1][j]!=check)
-					{
-						tomato[i+1][j]=check+1;
-						visit[i][j]=1;
-						end++;
-					}
-					if(tomato[i][j-1]!=-1&&j-1>=0&&visit[i][j-1]!=1&&tomato[i][j-1]!=check)
-					{
-						tomato[i][j-1]=check+1;
-						visit[i][j]=1;
-						end++;
-					}
-					if(tomato[i][j+1]!=-1&&j+1>=0&&visit[i][j+1]!=1&&tomato[i][j+1]!=check)
-					{
-						tomato[i][j+1]=check+1;
-						visit[i][j]=1;
-						end++;
-					}
-					printf("%d\n",end);
-				}
+				q[rear][0]=i;
+				q[rear][1]=j;
+				rear++;
 			}
 		}
-		
-		if(end==0)
-		{
-			printf("-1");
-			return 0;
-		}
-		
-		check++;
-		end=0;
 	}
 
-	
-	for(int i=0;i<n;i++)
+	while(front<rear)
 	{
-		for(int j=0;j<m;j++)
+		x=q[front][0];
+		y=q[front][1];
+		front++;
+		
+		for(int k=0;k<4;k++)
 		{
-			printf("%d ",tomato[i][j]);
+			if(arr[x+dx[k]][y+dy[k]]==0)
+			{
+				arr[x+dx[k]][y+dy[k]]=1;
+				visit[x+dx[k]][y+dy[k]]=visit[x][y]+1;
+				q[rear][0]=x+dx[k];
+				q[rear][1]=y+dy[k];
+				r++;
+			}
 		}
-		printf("\n");
 	}
 	
 	
-	for(int i=0;i<n;i++)
-	{
-		for(int j=0;j<m-1;j++)
-		{
-			ans=max(max(tomato[i][j],tomato[i][j+1]),ans);
-		}
-	}
 	
-	printf("%d",ans-1);
-}
-
+ } 
