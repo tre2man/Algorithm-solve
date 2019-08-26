@@ -1,35 +1,53 @@
 #include <stdio.h>
 
-int arr[101][101];
-int visit[101][101];
+int mi[110][110];
+int visit[110][110];
+int q[100000][2]={0};
+int dx[4]={-1,1,0,0},dy[4]={0,0,-1,1};
+int n,m,front=0,rear=1,x,y;
 
-int bfs(int arr[][],int N,int M)
+void reset()
 {
-	int x=0,y=0,count=1;
-	visit[0][0]=1;
-	while(x==N&&y==M)
+	for(int i=0;i<=n+1;i++)
 	{
-		for(;;)
+		for(int j=0;j<=m+1;j++)
 		{
-			
+			mi[j][i]=0;
+			visit[j][i]=0;
 		}
 	}
-	return count;
 }
 
 int main()
 {
-	int N,M,i,j;
+	scanf("%d %d",&n,&m);
 	
-	scanf("%d %d",&N,&M);
-	
-	for(i=0;i<N;i++)
+	for(int i=1;i<=n;i++)
 	{
-		for(j=0;j<M;j++)
+		for(int j=1;j<=m;j++)
 		{
-			scanf("%1d",&arr[i][j]);
+			scanf("%1d",&mi[j][i]);
+		}
+	}
+		
+	q[0][0]=1,q[0][1]=1;
+	
+	while(front<rear)
+	{
+		x=q[front][0];
+		y=q[front][1];
+		front++;
+		for(int k=0;k<4;k++)
+		{
+			if(mi[x+dx[k]][y+dy[k]]==1&visit[x+dx[k]][y+dy[k]]==0) //만약 그 좌표가 1이라면 (길이 통한다면) 
+			{
+				visit[x+dx[k]][y+dy[k]]=visit[x][y]+1;
+				q[rear][0]=x+dx[k];
+				q[rear][1]=y+dy[k];
+				rear++;
+			}
 		}
 	}
 	
-	bfs(arr,N,M);
-}
+	printf("%d",visit[m][n]+1);
+ } 
