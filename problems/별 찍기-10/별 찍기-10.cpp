@@ -31,7 +31,7 @@ int main()
 	{
 		for(int y=1;y<=n;y++)
 		{
-			if(arr[x][y]=='*') printf("%c",arr[x][y]);
+			if(arr[x][y]=='*') printf("*");
 			else printf(" ");
 		}
 		printf("\n");
