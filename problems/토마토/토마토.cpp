@@ -76,7 +76,6 @@ int main()
 		}
 	}
 
-
 	int count=0,check=0;
 
 	for(i=1;i<=n;i++)

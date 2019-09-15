@@ -18,9 +18,9 @@ void tri(int x,int y,int num)
 
 	else
 	{
-		tri(x,y+num/2,num/2);   //��
-		tri(x+num/2,y,num/2);   //����
-		tri(x+num/2,y+num,num/2);    //������
+		tri(x,y+num/2,num/2);   
+		tri(x+num/2,y,num/2);   
+		tri(x+num/2,y+num,num/2);    
 	}
  }
 
