@@ -12,7 +12,6 @@ def bfs():
             dx = [0,0,1,-1]
             dy = [1,-1,0,0]
 
-
             for i in range(4):
                 nx = x1 + dx[i]
                 ny = y1 + dy[i]
