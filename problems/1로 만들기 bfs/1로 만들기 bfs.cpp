@@ -38,9 +38,7 @@ int bfs()
 
 int main()
 {
-	scanf("%d",&a);
-	
-	bfs();
-	
+	scanf("%d",&a);	
+	bfs();	
 	printf("%d",visit[1]-1);
 }
