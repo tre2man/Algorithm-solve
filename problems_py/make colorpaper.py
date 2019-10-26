@@ -1,4 +1,1 @@
-
-
-
 input=int(input())
