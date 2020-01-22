@@ -1,14 +1,13 @@
 #include <stdio.h>
 
 int n,m; //1부터 n까지 중복없이 m개 고른 것
-int arr[9]={0};  
-int visit[9]={0};
+int arr[9]={0};  //
+int visit[9]={0};  //방문한 곳 체크 
 
 //그래프 탐색을 이용하여 풀이  
 
 void dfs(int a)
 { 
-	printf("%d start\n",a);
 	if(a==m)
 	{
 		for(int i=0;i<m;i++) printf("%d ",arr[i]);
@@ -25,7 +24,6 @@ void dfs(int a)
 			visit[i]=0;
 		}
 	}
-	printf("%d end\n",a);
 }
 
 int main()
