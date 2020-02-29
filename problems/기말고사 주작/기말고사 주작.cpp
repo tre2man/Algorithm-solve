@@ -20,10 +20,7 @@ int main()
 		}
 	}
 	
-	for(i=0;i<num;i++)
-	{
-		sum=sum+(array[i]*100)/max;
-	}
+	for(i=0;i<num;i++) sum=sum+(array[i]*100)/max;
 	
 	printf("%.3f\n",sum/num);
 	

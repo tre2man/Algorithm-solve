@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include max 1000000000
 
 int arr[110][11]={0};
 
@@ -18,17 +19,17 @@ int main()
 		arr[i][9]=arr[i-1][8];
 		for(int j=1;j<=8;j++)
 		{
-			arr[i][j]=arr[i-1][j-1]%1000000000+arr[i-1][j+1]%1000000000;
-			arr[i][j]%=1000000000;	
+			arr[i][j]=arr[i-1][j-1]%max+arr[i-1][j+1]%max;
+			arr[i][j]%=max;	
 		}
 	}
 	
 	for(int i=0;i<=9;i++)
 	{
 		ans+=arr[a][i];
-		ans%=1000000000;
+		ans%=max;
 	}
 		
-	printf("%d",ans%1000000000);
+	printf("%d",ans%max);
 	
  } 
