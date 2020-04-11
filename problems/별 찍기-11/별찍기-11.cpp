@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-char arr[3072][7000]={NULL};
+bool arr[3072][7000]={NULL};
 
 void tri(int x,int y,int num)
 {
@@ -18,9 +18,9 @@ void tri(int x,int y,int num)
 
 	else
 	{
-		tri(x,y+num/2,num/2);   
-		tri(x+num/2,y,num/2);   
-		tri(x+num/2,y+num,num/2);    
+		tri(x,y+num/2,num/2);
+		tri(x+num/2,y,num/2);
+		tri(x+num/2,y+num,num/2);
 	}
  }
 
@@ -30,8 +30,8 @@ void print(int x,int y)
 	{
 		for(int j=0;j<y;j++)
 		{
-			if(arr[i][j]==NULL) printf(" ");
-			else printf("*");
+			if(arr[i][j]) printf("*");
+			else printf(" ");
 		}
 		printf("\n");
 	}
