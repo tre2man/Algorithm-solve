@@ -3,6 +3,8 @@
 #include <algorithm>
 using namespace std;
 
+/*겹치는 점이 0, 1, 2, 무한대일 경우에 대하여 생각한다.*/
+
 int main()
 {
     int n;

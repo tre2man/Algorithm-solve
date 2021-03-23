@@ -3,6 +3,8 @@
 #include <algorithm>
 using namespace std;
 
+/*dp 이용하여 규칙 찾기. 0,1,1,2,3... 순서대로 호출하고 예외 처리 해준다.*/
+
 void cal(int n)
 {
     int arr[40];
@@ -32,4 +34,5 @@ int main()
         scanf("%d", &test);
         cal(test);
     }
+    return (0);
 }
