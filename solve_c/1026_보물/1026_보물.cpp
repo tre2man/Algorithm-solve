@@ -4,14 +4,14 @@
 #include <vector>
 using namespace std;
 
-bool comp(int a,int b)
+bool comp(int a, int b)
 {
     return a > b;
 }
 
 int main()
 {
-    int num, temp, ans =0;
+    int num, temp, ans = 0;
     vector<int> arrA;
     vector<int> arrB;
 
@@ -20,7 +20,7 @@ int main()
     {
         cin >> temp;
         arrA.push_back(temp);
-    }  
+    }
     for (int i = 0; i < num; i++)
     {
         cin >> temp;

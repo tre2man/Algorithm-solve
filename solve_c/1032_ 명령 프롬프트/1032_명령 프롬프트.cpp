@@ -12,8 +12,8 @@ int main()
     for (int i = 1; i < n; i++)
     {
         cin >> input;
-        for(int j=0;input[j] != '\0';j++)
-            if (ans[j]!=input[j])
+        for (int j = 0; input[j] != '\0'; j++)
+            if (ans[j] != input[j])
                 ans[j] = '?';
     }
     cout << ans << endl;
