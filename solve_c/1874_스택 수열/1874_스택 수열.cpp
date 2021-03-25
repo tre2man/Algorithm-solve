@@ -3,6 +3,12 @@
 #include <stack>
 using namespace std;
 
+/*
+스택과 큐를 이용하여 문제를 푼다.
+스택을 이용할 곳은 스택 선언, 스택에서 빠진 수는 큐를 이용하여 보관한다.
+빠진 수를 다시 넣기 위해서는 fifo 구조의 자료형이 필요함.
+*/
+
 int main()
 {
     int n, a, temp;
