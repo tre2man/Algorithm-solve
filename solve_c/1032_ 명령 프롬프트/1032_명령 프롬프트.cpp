@@ -2,6 +2,10 @@
 #include <cstring>
 using namespace std;
 
+/*
+다른 문자가 있을경우 '?' 치환
+*/
+
 int main()
 {
     int n;

@@ -2,6 +2,10 @@
 #include <math.h>
 using namespace std;
 
+/*
+모든 곳을 탐색하지 않게 주의한다.
+*/
+
 int r, c, ans;
 
 void find(int x, int y, int size)
