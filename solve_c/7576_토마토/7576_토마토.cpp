@@ -85,7 +85,6 @@ int main()
                 q.push(make_pair(i, j));
                 visit[i][j] = 1;
             }
-                
             if (map[i][j] == -1)
                 error.push(make_pair(i, j));
         }
