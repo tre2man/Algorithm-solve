@@ -2,7 +2,9 @@
 
 /*
 c언어로 못풀겠어요...오버플로우 처리를 생각해야 하는데, 나중에 해봐야 할듯
+파이썬으로 풀이 했습니다.
 */
+
 unsigned long long input, check, ans, temp;
 unsigned long long powarr[17];
 int end;
