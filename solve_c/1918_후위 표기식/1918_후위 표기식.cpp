@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <stack>
 using namespace std;
 
@@ -62,5 +63,6 @@ int main()
         printf("%c",sign.top());
         sign.pop();
     }
+    free(input);
     return (0);
 }
