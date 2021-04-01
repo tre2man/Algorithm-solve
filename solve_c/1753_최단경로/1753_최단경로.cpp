@@ -8,7 +8,7 @@ using namespace std;
 /*
 다익스트라 알고리즘을 이용하여 탐색한다.
 우선순위 큐를 이용하는 알고리즘이다. (누적된 길이의 합이 적은 것부터 시작)
-미완성
+max_len 을 최대숫자로 초기화하지 않는 대신, 0이 아닐 경우를 추가해준다.
 */
 
 typedef struct
@@ -18,8 +18,9 @@ typedef struct
 } location;
 
 vector<location> input[300001];
+/* 우선순위 큐를 이용하여 누적된 거리가 적은 것부터 뽑는다. */
 priority_queue<location> open;
-int max_len[300001];
+int min_len[300001];
 int visited[300001];
 int V, E, K, u, v, w;
 
@@ -34,6 +35,7 @@ void dijk(int start, int end)
     open.push({start, 0});
     while (!open.empty())
     {
+        /* 이전 노드의 최소 거리와 노드 정보 추출 */
         int start_node = open.top().node;
         int start_cost = open.top().len;
         visited[start_node] = 1;
@@ -44,19 +46,21 @@ void dijk(int start, int end)
             int next_node = input[start_node][i].node;
             int next_cost = input[start_node][i].len;
             /* 최소 경로 발견시? 큐에 삽입 */
-            if (!visited[next_node] && !max_len[next_node] || max_len[next_node] > start_cost + next_cost)
+            if (!visited[next_node] && !min_len[next_node] || min_len[next_node] > start_cost + next_cost)
             {
-                max_len[next_node] = start_cost + next_cost;
-                open.push({next_node, max_len[next_node]});
+                /* 다음 탐색 노드에 길이 정보 입력 */
+                min_len[next_node] = start_cost + next_cost;
+                /* 큐에는 다음 노드의 전체 정보 push */
+                open.push({next_node, min_len[next_node]});
             }
         }
     }
     for (int i = 1; i <= end; i++)
     {
-        if (i != start && !max_len[i])
+        if (i != start && !min_len[i])
             printf("INF\n");
         else
-            printf("%d\n", max_len[i]);
+            printf("%d\n", min_len[i]);
     }
 }
 
@@ -68,7 +72,7 @@ int main()
         scanf("%d %d %d", &u, &v, &w);
         input[u].push_back({v, w});
     }
-    memset(max_len, 0, sizeof(max_len));
+    memset(min_len, 0, sizeof(min_len));
     memset(visited, 0, sizeof(visited));
     dijk(K, V);
     return (0);
