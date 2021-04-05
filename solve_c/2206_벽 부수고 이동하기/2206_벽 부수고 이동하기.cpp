@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <cstring>
 using namespace std;
 
 /*
@@ -94,6 +95,6 @@ int main()
 {
     cin >> N >> M;
     input();
-    visit_clear();
+    memset(visit, 0, sizeof(visit));
     printf("%d\n", bfs());
 }
