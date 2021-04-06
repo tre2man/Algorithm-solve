@@ -4,14 +4,14 @@ using namespace std;
 
 #define BOARD_MAX 15
 
-int			g_arr[BOARD_MAX];
-int			g_sum;
-int         n;
+int g_arr[BOARD_MAX];
+int g_sum;
+int n;
 
-int			correct(int index)
+int correct(int index)
 {
-	int		i;
-	int		check;
+	int i;
+	int check;
 
 	i = -1;
 	while (++i < index)
@@ -25,15 +25,15 @@ int			correct(int index)
 	return (1);
 }
 
-void		rec(int start)
+void rec(int start)
 {
-	int		i;
+	int i;
 
 	i = -1;
 	if (start == n)
 	{
 		g_sum++;
-		return ;
+		return;
 	}
 	while (++i < n)
 	{
@@ -43,9 +43,9 @@ void		rec(int start)
 	}
 }
 
-int			ten_queens_puzzle(void)
+int ten_queens_puzzle(void)
 {
-	int		i;
+	int i;
 
 	i = -1;
 	g_sum = 0;
@@ -57,6 +57,6 @@ int			ten_queens_puzzle(void)
 
 int main()
 {
-    cin >> n;
-    cout << ten_queens_puzzle() << endl;
+	cin >> n;
+	cout << ten_queens_puzzle() << endl;
 }

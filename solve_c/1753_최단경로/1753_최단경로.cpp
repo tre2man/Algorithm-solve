@@ -24,6 +24,7 @@ int min_len[300001];
 int visited[300001];
 int V, E, K, u, v, w;
 
+/* 거리가 적은 것이 우선순위가 높게 한다. */
 bool operator<(location a, location b)
 {
     return (a.len > b.len);
@@ -31,7 +32,7 @@ bool operator<(location a, location b)
 
 void dijk(int start, int end)
 {
-    /* 시작점 초기비용 */
+    /* 시작점 초기비용 = 0 */
     open.push({start, 0});
     while (!open.empty())
     {
