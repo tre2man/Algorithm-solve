@@ -1,62 +1,60 @@
 #include <iostream>
-
+#include <cstring>
 using namespace std;
 
 #define BOARD_MAX 15
 
-int g_arr[BOARD_MAX];
-int g_sum;
-int n;
+int arr[BOARD_MAX];
+int sum, n;
 
+/* 배치된 퀸이 조건에 맞는지 판별하는 함수 */
 int correct(int index)
 {
-	int i;
-	int check;
+	int check, i = -1;
 
-	i = -1;
 	while (++i < index)
 	{
-		check = g_arr[i] - g_arr[index];
+		check = arr[i] - arr[index];
 		if (check < 0)
 			check *= -1;
-		if (g_arr[index] == g_arr[i] || check == index - i)
+		if (arr[index] == arr[i] || check == index - i)
 			return (0);
 	}
 	return (1);
 }
 
+/* 재귀함수가 돌아가면서 백트래킹을 실행한다. */
 void rec(int start)
 {
-	int i;
+	int i = -1;
 
-	i = -1;
+	/* 체스판에 퀸이 N개 채워졌을 경우 */
 	if (start == n)
 	{
-		g_sum++;
+		sum++;
 		return;
 	}
 	while (++i < n)
 	{
-		g_arr[start] = i;
+		arr[start] = i;
 		if (correct(start))
 			rec(start + 1);
 	}
 }
 
-int ten_queens_puzzle(void)
+/* 배열 초기화 후 백트래킹 실행 */
+void ten_queens_puzzle(void)
 {
-	int i;
+	int i = -1;
 
-	i = -1;
-	g_sum = 0;
-	while (++i < n)
-		g_arr[i] = 0;
+	sum = 0;
+	memset(arr, 0, sizeof(arr));
 	rec(0);
-	return (g_sum);
 }
 
 int main()
 {
 	cin >> n;
-	cout << ten_queens_puzzle() << endl;
+	ten_queens_puzzle();
+	cout << sum;
 }
