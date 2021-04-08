@@ -29,6 +29,7 @@ void cal(int N, int K)
     priority_queue<loc> q;
     int min_time[110000];
 
+    /* min_time을 모두 최댓값으로 변경 */
     for (int i = 0; i < 109999; i++)
         min_time[i] = INT_MAX;
 
@@ -39,6 +40,7 @@ void cal(int N, int K)
         int start_location = q.top().location;
         int start_min = q.top().time;
         q.pop();
+        /* 답을 찾았을 경우 */
         if (start_location == K)
         {
             printf("%d",min_time[K]);
