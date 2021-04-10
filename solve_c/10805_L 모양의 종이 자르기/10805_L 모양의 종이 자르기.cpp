@@ -1,5 +1,9 @@
 #include <iostream>
 
+/*
+미완성
+*/
+
 /* a,b,c,d */
 int arr[52][52][52][52];
 int a, b, c, d;

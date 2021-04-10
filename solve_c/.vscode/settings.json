@@ -4,6 +4,8 @@
         "queue": "cpp",
         "cmath": "cpp",
         "xlocale": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp"
     }
 }
