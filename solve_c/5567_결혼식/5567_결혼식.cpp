@@ -18,7 +18,10 @@ int n, m, ans = 0;
 
 void bfs()
 {
+    visited[1] = 1;
     q.push(1);
+
+    /* 큐에 원소가 없을 때까지 실행 */
     while (!q.empty())
     {
         int x = q.front();
@@ -26,6 +29,7 @@ void bfs()
         /* 친구의 친구를 넘어서는 경우, 종료 */
         if (visited[x] == 3)
             break;
+        /* 현재 탐색 노드와 연결된 모든 노드에 대하여 탐식 */
         for (auto start = v[x].begin(); start != v[x].end(); start++)
         {
             int next = *start;
@@ -47,10 +51,10 @@ int main()
     {
         int a, b;
         scanf("%d %d", &a, &b);
+        /* 양방향 그래프이므로 두 군데 정보를 입력한다. */
         v[a].push_back(b);
         v[b].push_back(a);
     }
-    visited[1] = 1;
     bfs();
     printf("%d", ans);
 }

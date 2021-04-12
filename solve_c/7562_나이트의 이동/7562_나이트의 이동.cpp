@@ -11,7 +11,6 @@ typedef struct
     int y;
 } loc;
 
-int map[301][301];
 int visited[301][301];
 /* 이동 가능한 좌표를 미리 지정해둠 */
 loc moves[8] = {{2, 1}, {1, 2}, {2, -1}, {1, -2}, {-2, 1}, {-1, 2}, {-1, -2}, {-2, -1}};
@@ -31,7 +30,6 @@ int can_move(loc start, loc next)
 void bfs()
 {
     queue<loc> q;
-    memset(map, 0, sizeof(map));
     memset(visited, 0, sizeof(visited));
     
     visited[a][b] = 1;
