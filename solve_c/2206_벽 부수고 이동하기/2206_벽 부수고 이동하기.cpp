@@ -3,14 +3,6 @@
 #include <cstring>
 using namespace std;
 
-/*
-기본적으로 최단경로는 bfs를 이용하는 문제이다.
-벽을 한 번 부술수 있으니, 각 칸에 벽을 몇 번 부쉈는지에 대한 정보를 저장한다.
-visit 맵은 1번 부술 수 있는 맵 & 부술 수 없는 맵이 있다.
-한번 부수게 되면은 다른 visit 맵으로 가서 계산하게 된다.
-bfs는 목표에 도달하게 되면 그 상황이 가장 빨리 도달하게 된 결과이므로, 그것이 정답이다.
-*/
-
 #define MAP_MAX 1001
 #define D_MAX 4
 
@@ -27,6 +19,7 @@ typedef struct
     int broken;
 } wall;
 
+//bfs 수행 및 방문한곳 표시
 int bfs()
 {
     wall start;
@@ -75,13 +68,6 @@ int bfs()
         }
     }
     return (-1);
-}
-
-void visit_clear()
-{
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < M; j++)
-            visit[i][j][0] = visit[i][j][1] = 0;
 }
 
 void input()
