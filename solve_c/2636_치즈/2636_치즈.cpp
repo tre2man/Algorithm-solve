@@ -3,6 +3,11 @@
 #include <cstring>
 using namespace std;
 
+/*
+bfs 돌릴때마다 치즈 확인
+있으면 탐색 종료
+*/
+
 typedef struct
 {
     int x;

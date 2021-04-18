@@ -3,6 +3,11 @@
 #include <cstring>
 using namespace std;
 
+/*
+bfs 돌릴때마다 치즈가 있는지 판단
+접촉면 2개 이상일 때 사라짐, 즉 2번 방문하면 사라짐.
+*/
+
 typedef struct
 {
     int x;
