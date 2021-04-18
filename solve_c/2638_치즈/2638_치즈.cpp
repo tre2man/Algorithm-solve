@@ -30,19 +30,27 @@ void bfs()
             /* 인덱스 벗어나지 않는지 */
             if (next.x >= 0 && next.x < M && next.y >= 0 && next.y < N)
             {
-                /* 방문하지 않은 곳이면 */
-                if (!visited[next.x][next.y])
+                /* 치즈가 없을 경우 */
+                if (map[next.x][next.y] == 0)
                 {
-                    visited[next.x][next.y] = 1;
-                    /* 방문한 곳이 치즈라면? */
-                    if (map[next.x][next.y] == 1)
+                    /* 방문하지 않았을 경우 */
+                    if (!visited[next.x][next.y])
+                    {
+                        visited[next.x][next.y]++;
+                        q.push({next.x, next.y});
+                    }
+                }
+                /* 치즈가 있을 경우 */
+                else
+                {
+                    /* 1회 이하 방문했을 경우 */
+                    if (!visited[next.x][next.y])
+                        visited[next.x][next.y]++;
+                    else
                     {
                         map[next.x][next.y] = 0;
                         now_cheeze--;
                     }
-                    /* 방문한 곳이 치즈가 아니라면? */
-                    else
-                        q.push({next.x, next.y});
                 }
             }
         }
@@ -72,6 +80,5 @@ int main()
         bfs();
     }
     cout << time << "\n";
-    cout << last_cheeze;
     return (0);
 }
