@@ -13,10 +13,10 @@ def main():
     #모든 제곱수에 대하여
     for i in numbers:
         #제곱수의 배수 중 i*j>=min 만족하는 수
-        j = math.ceil(min_num/i)
+        j = math.ceil(min_num / i)
         # b까지 제곱수 찾아서 non_numbers 수정하기
-        while i*j <= max_num:
-            non_numbers[i*j-min_num] = 0
+        while i * j <= max_num:
+            non_numbers[i * j - min_num] = 0
             j += 1
     #1이 들어간 곳은 조건을 만족하는 곳
     print(sum(non_numbers))

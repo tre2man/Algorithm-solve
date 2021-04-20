@@ -13,14 +13,18 @@ LIS 알고리즘 사용.
 
 int main()
 {
+    ios::sync_with_stdio(0);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     vector<int> v;
     vector<int> len;
     int N, temp, ans = 0;
 
-    scanf("%d", &N);
+    cin >> N;
     for (int i = 0; i < N; i++)
     {
-        scanf("%d", &temp);
+        cin >> temp;
         v.push_back(temp);
     }
     for (int i = 0; i < N; i++)
@@ -32,7 +36,10 @@ int main()
                 len[i] = max(len[i], len[j] + 1);
         }
     }
-    for(auto start = len.begin(); start != len.end();start++)
-        ans = max(ans, *start);
-    printf("%d\n",ans);
+    for (int i = 0; i < N; i++)
+    {
+        cout << len[i] << " ";
+        ans = max(ans, len[i]);
+    }
+    cout << "\n" << ans;
 }
