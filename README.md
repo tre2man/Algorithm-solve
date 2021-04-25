@@ -1,4 +1,4 @@
-# eakjoon-solve
+# Beakjoon-solve
 
 백준 문제를 푸는 전자공학부 학생입니다.
 
