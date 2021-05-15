@@ -2,6 +2,7 @@
     "files.associations": {
         "*.html": "html",
         "iostream": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "iosfwd": "cpp"
     }
 }
