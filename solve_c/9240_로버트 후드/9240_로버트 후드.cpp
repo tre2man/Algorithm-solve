@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+솔직히 이거 왜 맞았는지 모르겠음.
+출제자의 의도와 상관없이 convex Hull 후에 완전탐색을 해도 답이 나온다.
+*/
+
 typedef double db;
 
 typedef struct

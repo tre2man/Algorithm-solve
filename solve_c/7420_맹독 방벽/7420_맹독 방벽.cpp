@@ -1,9 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PI 3.1415926535
+/*
+엿같은 부동소수점 오차...
+1보다 큰 수일 경우 작은 수를 빼서 1보다 작게 만든다.
+반대로 -1보다 작은 수일 경우 -1보다 크게 만든다.
+*/
 
-/* 푸는중인데 44퍼에서 계속 틀림 특정 데이터에서 hull에 좌표가 2개 들어가는것 발견함.*/
+#define PI 3.1415926535
+#define MMIN 0.00000000000001
 
 typedef double db;
 
@@ -36,14 +41,19 @@ db len(point a, point b)
 db angle(point a, point b, point c)
 {
 	point i, j;
-	db ans;
+	db theta;
 	i.x = a.x - b.x;
 	i.y = a.y - b.y;
 	j.x = c.x - b.x;
 	j.y = c.y - b.y;
 
-	ans = acos((i.x * j.x + i.y * j.y) / (uveclen(i) * uveclen(j)));
-	return (ans);
+	/* 내적과 acos을 이용한 각도 구하기 */
+	theta = (i.x * j.x + i.y * j.y) / (uveclen(i) * uveclen(j));
+	if (theta < -1)
+		theta += MMIN;
+	if (theta > 1)
+		theta -= MMIN;
+	return (acos(theta));
 }
 
 /* y축 오름차순으로 정렬함수 */
@@ -108,8 +118,6 @@ int main()
 		}
 		hull.push_back(v[i]);
 	}
-	for (int i = 0; i < hull.size(); i++)
-		cout << hull[i].x << " " << hull[i].y << "\n";
 	for (int i = 2; i < hull.size(); i++)
 	{
 		angles += (PI - angle(hull[i - 2], hull[i - 1], hull[i]));
