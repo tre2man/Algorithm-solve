@@ -3,6 +3,7 @@
         "*.html": "html",
         "iostream": "cpp",
         "shared_mutex": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "vector": "cpp"
     }
 }
