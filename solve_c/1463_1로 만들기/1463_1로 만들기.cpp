@@ -1,6 +1,10 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
+#define DP 1
+
+#ifdef DP
+//dp
 int dp(int a)
 {
 	int arr[1000001] = {0};
@@ -20,6 +24,54 @@ int dp(int a)
 int main()
 {
 	int a;
-	scanf("%d", &a);
-	printf("%d", dp(a));
+	cin >> a;
+	cout << dp(a);
+	return (0);
 }
+#endif
+
+
+#ifdef BFS
+//bfs
+
+unsigned int visited[1000001];
+
+int bfs(int a)
+{
+	queue<int> q;
+	q.push(a);
+	visited[a] = 1;
+	while (!q.empty())
+	{
+		int start = q.front();
+		q.pop();
+		if (start == 1)
+			return (visited[start] - 1);
+		if ((start / 3 > 0) && !(start % 3) && (visited[start / 3] > visited[start]))
+		{
+			visited[start / 3] = visited[start] + 1;
+			q.push(start / 3);
+		}
+		if ((start / 2 > 0) && !(start % 2) && (visited[start / 2] > visited[start]))
+		{
+			visited[start / 2] = visited[start] + 1;
+			q.push(start / 2);
+		}
+		if ((start - 1 > 0) && (visited[start - 1] > visited[start]))
+		{
+			visited[start - 1] = visited[start] + 1;
+			q.push(start - 1);
+		}
+	}
+	return (0);
+}
+
+int main()
+{
+	int a;
+	memset(visited, 0xFF, sizeof(visited));
+	cin >> a;
+	cout << bfs(a);
+	return (0);
+}
+#endif
