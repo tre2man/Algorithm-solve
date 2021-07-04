@@ -11,6 +11,7 @@ bfs를 이용해서 풀이.
 */
 
 typedef struct
+
 {
     int end;
     int value;
