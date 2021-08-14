@@ -8,7 +8,6 @@ using namespace std;
 */
 
 #define PI 3.1415926535
-#define MMIN 0.00000000000001
 
 typedef double db;
 
@@ -50,10 +49,11 @@ db angle(point a, point b, point c)
 	/* 내적과 acos을 이용한 각도 구하기 */
 	theta = (i.x * j.x + i.y * j.y) / (uveclen(i) * uveclen(j));
 	if (theta < -1)
-		theta += MMIN;
-	if (theta > 1)
-		theta -= MMIN;
-	return (acos(theta));
+		return (acos(-1));
+	else if (theta > 1)
+		return (acos(1));
+	else
+		return (acos(theta));
 }
 
 /* y축 오름차순으로 정렬함수 */
@@ -92,7 +92,7 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		cin >> x >> y;
-		v.push_back({x, y});
+		v.push_back((point){x, y});
 	}
 	/* y축 오름차순으로 정렬하기 */
 	sort(v.begin(), v.end(), comp_y);
