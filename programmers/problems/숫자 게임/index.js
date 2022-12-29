@@ -8,8 +8,6 @@ function solution(A, B) {
   let answer = 0;
   A.sort((a, b) => a - b);
   B.sort((a, b) => b - a);
-  console.log({ A });
-  console.log({ B });
   for (const a of A) {
     while (B.length > 0 && a >= B[B.length - 1]) {
       B.pop();
