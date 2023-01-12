@@ -15,6 +15,7 @@ function solution(board, skill) {
     Array.from({ length: M + 1 }).fill(0)
   );
 
+  // 각 포인트에 대하여 누적합 배열 생성 준비
   for (const [type, r1, c1, r2, c2, dmg] of skill) {
     const attack = dmg * (type === 1 ? -1 : 1);
     acc[r1][c1] += attack;
@@ -23,19 +24,19 @@ function solution(board, skill) {
     acc[r2 + 1][c2 + 1] += attack;
   }
 
+  // 누적합 실행하기
   for (let i = 0; i < N; i++) {
     for (let j = 0; j < M; j++) {
       acc[i + 1][j] += acc[i][j];
     }
   }
-
   for (let i = 0; i < N; i++) {
     for (let j = 0; j < M; j++) {
       acc[i][j + 1] += acc[i][j];
     }
   }
 
-  // 기존 배열과 합
+  // 기존 배열과 합치기
   for (let i = 0; i < N; i++) {
     for (let j = 0; j < M; j++) {
       board[i][j] += acc[i][j];
